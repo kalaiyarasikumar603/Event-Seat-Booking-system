@@ -1,0 +1,18 @@
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+
+const venueRoutes = require("./routes/venues");
+const bookingRoutes = require("./routes/bookings");
+
+const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use("/venues", venueRoutes);
+app.use("/bookings", bookingRoutes);
+
+app.listen(5000, () => {
+    console.log("Server running on port 5000");
+});
